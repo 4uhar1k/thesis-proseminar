@@ -287,7 +287,11 @@ Unten können wir den Pseudocode für jeden Unteralgorithmus sehen.
 \newpage
 \section{Algorithmus von Orlin (1988)}
 Orlins Algorithmus gilt als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. In dieser Abteilung betrachten wir diese Lösung näher. \newline
-
+Wir sollen zwei Schlüsselbegriffe definieren:
+\begin{itemize}
+    \item ex(v) = (eingehender Fluss) - (ausgehender Fluss) - d(v), wobei d(v) für Nachfrage des Knoten v steht.
+    \item $\Delta = \text{größte Zweierpotenz} \leq U$, wobei $U$ für die maximale Kapazität im Graph steht.
+\end{itemize}
 
 \subsection{Algorithm von Orlin (1988)}
  Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
