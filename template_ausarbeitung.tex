@@ -175,16 +175,7 @@ Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diese
     \item Wenn ein Fluss existiert, berechnen Sie die Entfernung, Wert = $\mathbf{dist}$ + $\mathbf{p_i}$ – $\mathbf{p_i}$[k] - $\mathbf{cost}$[k].
     \item Vergleichen Sie die Entfernungswerte in $\mathbf{dist}$[ ] mit dem Wert und aktualisieren Sie so lange, bis der minimale Fluss erreicht ist.
 \end{enumerate}
-Wir können also drei wichtigste Unterprobleme definieren\cite{Cruz2023}:
-\begin{itemize}
-    \item Shortest $(s,t)$-path Problem – Wir haben einen Digraphen $G$, zwei bestimmte Knoten $\mathbf{s}$ und $\mathbf{t}$ und einen Kostenvektor $c \in \mathbb{Q}^m$. Die Aufgabe besteht darin, einen Pfad von $\mathbf{s}$ nach $\mathbf{t}$ mit minimalen Gesamtkosten zu finden.
-    
-    \item Transshipment problem –  die Variante von MCF, bei der keine Kantenkapazitäten vorhanden sind (oder, gleichbedeutend, alle Kantenkapazitäten sehr groß sind) 
-    
-    \item Negative-cycle detection problem –  Wir haben einen Digraphen $G$ und einen Kostenvektor $c \in \mathbb{Z}^m$. Die Aufgabe besteht darin, zu überprüfen, ob
- es in $G$ einen gerichteten Zyklus gibt, dessen Gesamtkosten negativ sind. (übersetzt durch DeepL)
-\end{itemize}
-Wir haben die Unterprobleme nicht nur für besseres Verständnis des Algorithmus erwähnt. Die können auch für genauere Analyse der Laufzeit, die wir später durchführen, hilfreich sein. 
+ 
 \subsection{Code}
 Das Algorithmus, das Min-Cost Max-Flow Problem löst, besteht tatsächlich aus drei Unteralgorithmen\cite{GeeksforGeeks2023}:
 \begin{enumerate}
@@ -304,7 +295,28 @@ Lasst uns zuerst mit dem Algorithmus anfangen, das wir früher implementiert hab
 \end{enumerate}
 
 \subsection{Optimierungsmöglichkeiten}
-Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
+Wir können drei wichtigste Unterprobleme definieren\cite{Cruz2023}. Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
+\begin{itemize}
+    \item Shortest $(s,t)$-path Problem – Wir haben einen Digraphen $G$, zwei bestimmte Knoten $\mathbf{s}$ und $\mathbf{t}$ und einen Kostenvektor $c \in \mathbb{Q}^m$. Die Aufgabe besteht darin, einen Pfad von $\mathbf{s}$ nach $\mathbf{t}$ mit minimalen Gesamtkosten zu finden.
+    
+    \item Transshipment problem –  die Variante von MCF, bei der keine Kantenkapazitäten vorhanden sind (oder, gleichbedeutend, alle Kantenkapazitäten sehr groß sind) 
+    
+    \item Negative-cycle detection problem –  Wir haben einen Digraphen $G$ und einen Kostenvektor $c \in \mathbb{Z}^m$. Die Aufgabe besteht darin, zu überprüfen, ob
+ es in $G$ einen gerichteten Zyklus gibt, dessen Gesamtkosten negativ sind. (übersetzt durch DeepL)
+\end{itemize}
+Da das Problem schon seit langer Zeit geforscht wurde, gibt es mehrere Lösungen, die für polynomielle Zeit ausgeführt werden
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+\hline
+Jahr & Laufzeit & Quelle \\ \hline
+1972 & O(E \log U) * SP & Edmonds und Karp \\ \hline
+1980 & O(E \log C) * MF & Röck \\ \hline
+1984 & O(E^{2} \log V) * SP & Orlin, Fujishige \\ \hline
+1985 & O(E^{2} \log V) * MF & Tardos \\ \hline
+1986 & O(V^{2} \log V) * SP & Galil und Tardos \\ \hline
+1988 & O(E \log V) * SP & Orlin \\ \hline
+\end{tabular}
+\end{center}
 
 \subsection{Algorithm von Orlan (1988)}
 Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
