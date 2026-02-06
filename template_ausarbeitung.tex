@@ -151,12 +151,13 @@ Hier ist ein Beispiel der Aufgabe, der mithilfe von Min-Cost Max-Flow gelöst wi
     \includegraphics[width=8cm]{figures/beispiel1.png}
     \caption{Fluss-Graph \cite{Halim2018}}
 \end{figure}
-Wir haben hier einen Graph, wobei jede Kante ihre Kosten hat, die oben geschrieben sind. Jeder Pfad hat eine Flusskapazität von 10 Einheiten. In dieser Aufgabe wollen wir 20 Einheiten von Fluss von A nach D übertragen. Wir sollen den effizientesten Weg dazu finden. Es gibt insgesamt drei Möglichkeiten dazu:
+Wir haben hier einen Graph, wobei jede Kante ihre Kosten hat, die oben geschrieben sind. Jeder Pfad hat eine Flusskapazität von 10 Einheiten. In dieser Aufgabe wollen wir 20 Einheiten von Fluss von A nach D übertragen. Wir sollen den effizientesten Weg dazu finden. Es gibt insgesamt drei mögliche Lösungen:
 \begin{itemize}
-    \item Первый пункт
-    \item Второй пункт
-    \item Третий пункт
+    \item A$\rightarrow$D + A$\rightarrow$B$\rightarrow$D = 1*10 + (3+4)*10 = 80 
+    \item A$\rightarrow$D + A$\rightarrow$C$\rightarrow$D = 1*10 + (3+5)*10 = 90 
+    \item A$\rightarrow$C$\rightarrow$D + A$\rightarrow$B$\rightarrow$D = (3+4)*10 + (3+5)*10 = 150 
 \end{itemize}
+Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen wählen wir die aus. Aber was wenn wir eine komplexere Aufgabe haben? Wie genau funktioniert das Algorithmus? Das erkläre ich im nächsten Kapitel.
 
 \newpage
 
