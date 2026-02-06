@@ -169,9 +169,9 @@ Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werd
 \subsection{Schrittweise Aufteilung}
 Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen. Die grundsätzliche Idee ist wie folgt: (übersetzt durch DeepL):
 \begin{enumerate}
-    \item Gegeben seien der Quellknoten $\mathbf{S}$ und der Senkenknoten $\mathbf{T}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{T}$ zur $\mathbf{S}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
-    \item Gegeben seien der Quellknoten $\mathbf{S}$ und der Senkenknoten $\mathbf{T}$, die ausgewählte Kante $\mathbf{p_i}$, die Nachfragknoten $\mathbf{d_a}$ und die Entfernung zwischen den Knoten $\mathbf{dist}$. Suchen Sie, ob es möglich ist, einen Fluss von $\mathbf{S}$ nach $\mathbf{T}$ zu haben.
-    \item Wenn ein Fluss existiert, berechnen Sie die Entfernung, Wert = $\mathbf{dist}$ + $\mathbf{p_i}$ – $\mathbf{p_i}$[k] - $\mathbf{cost}$[k].
+    \item Gegeben seien der Quellknoten $\mathbf{S}$ und der Senkenknoten $\mathbf{T}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{T}$ nach $\mathbf{S}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
+    \item Soweit es einen gültigen Pfad gibt, wählen wir einen Pfad von $\mathbf{T}$ nach $\mathbf{S}$ (entweder random oder mit den minimalen Kosten). Wir berechnen den maximalen Fluss, den wir entlang dieses Pfades senden können.
+    \item Nachdem wir einen Pfad ausgewählt und den Fluss berechnet haben, sollen wir diesen Pfad aktualisieren, indem wir die Kapazität aller Kanten aktualisieren. 
     \item Vergleichen Sie die Entfernungswerte in $\mathbf{dist}$[ ] mit dem Wert und aktualisieren Sie so lange, bis der minimale Fluss erreicht ist.
 \end{enumerate}
  
