@@ -294,8 +294,9 @@ Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit 
 \begin{enumerate}
     \item maxFlow() - Wir gehen von $\mathbf{sink}$ zu $\mathbf{src}$ und vergleichen dabei $\mathbf{val}$ und $\mathbf{amt}$. Die Vergleichung braucht $\mathbf{O(1)}$ und sie wird im schlimmsten Fall $\mathbf{V}$ mal durchgeführt. Insgesamt bekommen wir dann $\mathbf{O(V)}$.
     \item updateFlow() - Der Prinzip ist gleich: wir gehen durch den Pfad und aktualisieren den Flusswert und die Kosten für $\mathbf{O(1)}$. Insgesamt bekommen wir wieder $\mathbf{O(V)}$.
-    \item search() -
+    \item search() - Die $\mathbf{while}$-Schleife wird $\mathbf{V}$ mal durchgeführt. Die innere $\mathbf{for}$-Schleife läuft auch $\mathbf{V}$ mal. Insgesamt bekommen wir also $\mathbf{O(V^{2})}$.
 \end{enumerate}
+Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal gerufen
 Insgesamt bekommen wir die Laufzeit von $\mathbf{O(V^{2} \cdot F)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in relativ kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
 
 \subsection{Optimierungsmöglichkeiten}
