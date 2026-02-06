@@ -296,8 +296,7 @@ Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit 
     \item updateFlow() - Der Prinzip ist gleich: wir gehen durch den Pfad und aktualisieren den Flusswert und die Kosten für $\mathbf{O(1)}$. Insgesamt bekommen wir wieder $\mathbf{O(V)}$.
     \item search() - Die $\mathbf{while}$-Schleife wird $\mathbf{V}$ mal durchgeführt. Die innere $\mathbf{for}$-Schleife läuft auch $\mathbf{V}$ mal. Insgesamt bekommen wir also $\mathbf{O(V^{2})}$.
 \end{enumerate}
-Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal gerufen
-Insgesamt bekommen wir die Laufzeit von $\mathbf{O(V^{2} \cdot F)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in relativ kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
+Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal gerufen, wobei $\mathbf{F}$ für den maximalen Fluss im Graph steht. Da $\mathbf{O(V^{2})}$ die $\mathbf{O(V)}$ dominiert, bekommen wir die gesamte Laufzeit von $\mathbf{O(V^{2} \cdot F)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
 
 \subsection{Optimierungsmöglichkeiten}
 Wir können drei wichtigste Unterprobleme definieren.\cite{Cruz2023} Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
@@ -348,9 +347,18 @@ und wir verlangen auch nicht mehr, dass $\Delta$ bei jeder Iteration durch
 \newpage
 
 \section{Beispiele}
+Hier ist ein kurzer Überblick zu einer echten Programmieraufgabe. \newline
+Das Alfalfas-Team besucht die Chinesische Mauer. Sie wollen sie von Anfang bis Ende überqueren,
+aber einige Teile der Mauer wurden für Touristen umgebaut und es muss eine Mautgebühr bezahlt werden. Also
+kauften sie eine Karte, auf der die Mauer als Raster mit 5 Zeilen und n Spalten dargestellt war. Jeder Ort war
+mit einer Ziffer markiert, die die Höhe der Mautgebühr angibt. Die Alfalfas möchten, dass Sie ein Programm schreiben, um
+den Weg zu finden, wie man die Chinesische Mauer von Spalte 0 bis n-1 mit den geringsten Kosten überqueren kann. Sie beginnen in der ersten Spalte, wobei jede Position durch Klammeräffchen dargestellt wird. Die Kosten für alle Standorte in der ersten Spalte betragen 0. Sie können sich nur horizontal und vertikal bewegen. Sie möchten alle einzigartigen Teile der Chinesischen Mauer besuchen, daher passieren sie niemals Standorte, die ein anderer Alfalfa bereits besucht hat. Der Eingang sieht wie folgt aus:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=8cm]{figures/beispiel1.png}
+    \caption{Fluss-Graph \cite{Halim2018, Figure 9.23}}
+\end{figure}
 
-
-Gebe hier eine abgeschlossene Darstellung des Inhaltes. Schreibe diese so, dass sie für Deine Kommilitonen verständlich ist. Verwende dabei zur Anschauung des Inhaltes auch Beispiele und Abbildungen.
 
 %\Cref{sec:intro,fig:automat,alg:BFS,theo:aussage}.
 
