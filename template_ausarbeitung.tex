@@ -329,7 +329,15 @@ Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er
 Der Algorithmus funktioniert, nur wenn der Graph allen diesen Vorbedingungen zustimmt. Der Prinzip seiner Lösung basiert sich auf RHS-Scaling (Right Hand-Side) mit bestimmten Änderungen:
 \begin{enumerate}
     \item Wir ziehen eine Kante, sobald sie starkbasisch wird.
-    \item 
+    \item Wir lassen in einigen Fällen eine anomale Sondererhöhung zu,
+wenn der Abfluss eines Versorgungsknotens i sein Angebot b(i) übersteigt oder der Zufluss eines
+Nachfrageknotens i seine Nachfrage -b(i) übersteigt.
+    \item Wir verlangen, dass alle Lösungen Spannbaumlösungen sind,
+d. h. Bögen mit positiven Flüssen
+enthalten keine Zyklen.
+    \item Wir verlangen nicht mehr, dass $\Delta$ eine Potenz von 2 ist,
+und wir verlangen auch nicht mehr, dass $\Delta$ bei jeder Iteration durch
+2 geteilt wird. 
 \end{enumerate}
 
 \newpage
