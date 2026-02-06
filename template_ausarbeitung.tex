@@ -122,7 +122,7 @@
 	
 \begin{abstract}
 
-In meiner Ausarbeitung geht es um Min-Cost Max-Flow - ein Algorithmus, das echt hilfreich bei der Lösung verschiedenster Problemen sein kann und dabei ganz leicht zu verstehen und implementieren ist. Ich werde heute Implementierung von diesem Algorithmus zeigen und erklären. Außerdem will ich paar Beispielaufgaben, u.a. aus den echten Programmierwettbewerben vorzeigen, die mithilfe von Min-Cost Flow gelöst werden können.
+In meiner Ausarbeitung geht es um Min-Cost Max-Flow - ein Algorithmus, das echt hilfreich bei der Lösung verschiedenster Problemen sein kann und dabei ganz leicht zu verstehen und implementieren ist. Ich werde heute Implementierung von diesem Algorithmus zeigen und erklären. Außerdem will ich paar Beispielaufgaben, u.a. aus dem echten Programmierwettbewerb vorzeigen, die mithilfe von Min-Cost Flow gelöst werden können.
 \end{abstract}
 
 \section{Einleitung}
@@ -164,7 +164,7 @@ Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen w
 \section{Implementierung}
 
 \subsection{Auswahl des Algorithmus}
-Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Ein negativer Zyklus im Kosten-Netzwerk entsteht, wenn die Summe der Kosten aller Kanten im Zyklus negativ ist. Diese können mit dem \textbf{Bellman-Ford-Algorithmus} erkannt werden. Sie sollten beseitigt werden, da der Fluss durch solche Zyklen in der Praxis nicht zulässig ist. Betrachten wir einen negativen Kostenzyklus: Wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. \cite{GeeksforGeeks2023}(übersetzt durch DeepL)
+Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Diese können mit dem \textbf{Bellman-Ford-Algorithmus} erkannt werden. Sie sollten beseitigt werden, weil, wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. \cite{GeeksforGeeks2023}
 
 \subsection{Schrittweise Aufteilung}
 Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen. Die grundsätzliche Idee ist wie folgt:
@@ -298,33 +298,10 @@ Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit 
 \end{enumerate}
 Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal gerufen, wobei $\mathbf{F}$ für den maximalen Fluss im Graph steht. Da $\mathbf{O(V^{2})}$ die $\mathbf{O(V)}$ dominiert, bekommen wir die gesamte Laufzeit von $\mathbf{O(V^{2} \cdot F)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
 
-\subsection{Optimierungsmöglichkeiten}
-Wir können drei wichtigste Unterprobleme definieren.\cite{Cruz2023} Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
-\begin{itemize}
-    \item Shortest $(s,t)$-path Problem – Wir haben einen Digraphen $G$, zwei bestimmte Knoten $\mathbf{s}$ und $\mathbf{t}$ und einen Kostenvektor $c \in \mathbb{Q}^m$. Die Aufgabe besteht darin, einen Pfad von $\mathbf{s}$ nach $\mathbf{t}$ mit minimalen Gesamtkosten zu finden.
-    
-    \item Transshipment problem –  die Variante von MCF, bei der keine Kantenkapazitäten vorhanden sind (oder, gleichbedeutend, alle Kantenkapazitäten sehr groß sind) 
-    
-    \item Negative-cycle detection problem –  Wir haben einen Digraphen $G$ und einen Kostenvektor $c \in \mathbb{Z}^m$. Die Aufgabe besteht darin, zu überprüfen, ob
- es in $G$ einen gerichteten Zyklus gibt, dessen Gesamtkosten negativ sind. (übersetzt durch DeepL)
-\end{itemize}
-Da das Problem schon seit langer Zeit geforscht wurde, gibt es mehrere Lösungen, die für polynomielle Zeit ausgeführt werden. \cite{Cruz2023}
-\begin{center}
-\begin{tabular}{|c|c|c|}
-\hline
-Jahr & Laufzeit & Quelle \\ \hline
-1972 & $O(E \log U) \cdot SP$ & Edmonds und Karp \\ \hline
-1980 & $O(E \log C) \cdot MF$ & Röck \\ \hline
-1984 & $O(E^{2} \log V) \cdot SP$ & Orlin, Fujishige \\ \hline
-1985 & $O(E^{2} \log V) \cdot MF$ & Tardos \\ \hline
-1986 & $O(V^{2} \log V) \cdot SP$ & Galil und Tardos \\ \hline
-1988 & $O(E \log V) \cdot SP$ & Orlin \\ \hline
-\end{tabular}
-\end{center}
-Dabei steht $\mathbf{E}$ für die Anzahl der Kanten, $\mathbf{V}$ für die Anzahl der Knoten, $\mathbf{U}$ für die maximale Kapazität im Graph und $\mathbf{C}$ für die maximale Kosten. $\mathbf{SP}$ steht für Shortest-Path Problem und $\mathbf{MF}$ für Maximum-Flow. Orlins Algorithm gilt also als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. Im nächsten Abschnitt betrachten wir diesen Algorithmus näher. 
+
 
 \subsection{Algorithm von Orlin (1988)}
-Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
+Orlins Algorithm gilt also als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
 \begin{itemize}
     \item Alle Kantenkosten sind nicht negativ.
     \item Für jedes Knotenpaar i,j in Knotenmenge V gibt es eine Kante in Kantenmenge E von i nach j.
