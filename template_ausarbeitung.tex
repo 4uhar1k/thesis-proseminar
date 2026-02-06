@@ -127,7 +127,6 @@ In meiner Ausarbeitung geht es um Min-Cost Max-Flow - ein Algorithmus, das echt 
 
 \section{Einleitung}
 \label{sec:intro}
-Führe hier in das Thema ein: Worum geht es? Warum ist dies interessant? Welche Ergebnisse werden vorgestellt? Aufbau der Arbeit?
 
   Alles in unserer Welt ist irgendwie miteinander verbunden. Diese enge Verbundenheit kann mithilfe von Graph bezeichnet werden. Graph ist eine Datenstruktur, die in der Programmierung, u.a. in Programmierwettbewerben seit langem verwendet wurde. Diese Datenstruktur hilft uns, komplexe Probleme aus der echten Welt auf eine neue Ebene zu reduzieren und besseres Verständnis davon zu kriegen. In meiner Arbeit betrachte ich das Algorithmus Min-Cost (Max) Flow näher. Es ist ein guter Beispiel der Nutzung von Graphen.  \newline
  
@@ -347,46 +346,37 @@ und wir verlangen auch nicht mehr, dass $\Delta$ bei jeder Iteration durch
 
 Gebe hier eine abgeschlossene Darstellung des Inhaltes. Schreibe diese so, dass sie für Deine Kommilitonen verständlich ist. Verwende dabei zur Anschauung des Inhaltes auch Beispiele und Abbildungen.
 
-\subsection{Hinweise}
+%\Cref{sec:intro,fig:automat,alg:BFS,theo:aussage}.
 
-Der Hauptteil soll natürlich nicht den Titel \glqq Hauptteil\grqq\ sondern einen passenden Titel haben, und zudem in sinnvolle Abschnitte und Unterabschnitte mit passenden Überschriften gegliedert sein.\\
-
-\subsection{Zitate und Referenzen}
-Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
-
-
-
-Um innerhalb der Ausarbeitung zu referenzieren, können Bereiche mit einem \texttt{label} versehen werden. Durch das Paket \texttt{cleverref} wird beim Referenzieren automatisch [Abbildung/ Abschnitt/ Tabelle/ etc.] ergänzt. Beispiele in diesem Dokument sind \Cref{sec:intro,fig:automat,alg:BFS,theo:aussage}.
-
-\begin{figure}
-	\centering
-	\begin{tikzpicture}[myautomat]
-		\node[state, initial] (0) {$q_0$};
-		\node[state] (1) [right of=0] {$q_1$};
-		\node[state, double] (2) [right of=1] {$q_2$};
+%\begin{figure}
+	%\centering
+	%\begin{tikzpicture}[myautomat]
+		%\node[state, initial] (0) {$q_0$};
+		%\node[state] (1) [right of=0] {$q_1$};
+		%\node[state, double] (2) [right of=1] {$q_2$};
 		
-		\draw[->] (0) edge[bend left=20] node[auto] {$a,b$} (1);
-		\draw[->] (1) edge[bend left=20] node[auto] {$a$} (2)
-		edge[bend left=20] node[auto] {$b$} (0);
-		\draw[->] (2) edge[loop above] node[auto] {$a$} () 
-		edge[bend left=20] node[auto] {$b$} (1);
-	\end{tikzpicture}
-	\caption{Ein Automat, der mit Tikz erzeugt wurde}
-	\label{fig:automat}
-\end{figure}
+		%\draw[->] (0) edge[bend left=20] node[auto] {$a,b$} (1);
+		%\draw[->] (1) edge[bend left=20] node[auto] {$a$} (2)
+		%edge[bend left=20] node[auto] {$b$} (0);
+		%\draw[->] (2) edge[loop above] node[auto] {$a$} () 
+		%edge[bend left=20] node[auto] {$b$} (1);
+	%\end{tikzpicture}
+	%\caption{Ein Automat, der mit Tikz erzeugt wurde}
+	%\label{fig:automat}
+%\end{figure}
 
-\begin{figure}
-	\centering
-	\includegraphics[width=8cm]{automat.jpg} 
-	\caption{Eine Automat, der als jpg-Bild eingebunden wurde (Achtung: Auflösung!)}
-\end{figure}
+%\begin{figure}
+	%\centering
+	%\includegraphics[width=8cm]{automat.jpg} 
+	%\caption{Eine Automat, der als jpg-Bild eingebunden wurde (Achtung: Auflösung!)}
+%\end{figure}
 
-\begin{theorem}[Besondere Formel]\label{theo:aussage}
-	Hier ist eine Aussage.
-\end{theorem}
-\begin{proof}
-	Hier folgt der Beweis.
-\end{proof}
+%\begin{theorem}[Besondere Formel]\label{theo:aussage}
+	%Hier ist eine Aussage.
+%\end{theorem}
+%\begin{proof}
+	%Hier folgt der Beweis.
+%\end{proof}
 
 
 
