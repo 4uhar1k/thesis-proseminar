@@ -169,11 +169,11 @@ Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werd
 \subsection{Schrittweise Aufteilung}
 Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen. Die grundsätzliche Idee ist wie folgt:
 \begin{enumerate}
-    \item Gegeben sei ein Graph. Jede Kante in diesem Graph hat ihre Kosten \item Gegeben seien der Quellknoten $\mathbf{src}$ und der Senkenknoten $\mathbf{sink}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{sink}$ nach $\mathbf{src}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
+    \item Gegeben sei ein Graph. Jede Kante in diesem Graph hat ihre Kosten $\mathbf{cost}$, Kapazität $\mathbf{cap}$ und die Flussmenge, die durch diese Kante gesendet wird $\mathbf{flow}$. 
     \item Gegeben seien der Quellknoten $\mathbf{src}$ und der Senkenknoten $\mathbf{sink}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{sink}$ nach $\mathbf{src}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
     \item Soweit es einen gültigen Pfad gibt, wählen wir einen Pfad von $\mathbf{sink}$ nach $\mathbf{src}$ (entweder random oder mit den minimalen Kosten). Wir berechnen den maximalen Fluss, den wir entlang dieses Pfades senden können.
     \item Nachdem wir einen Pfad ausgewählt und den Fluss berechnet haben, sollen wir diesen Pfad aktualisieren, indem wir die Kapazität aller Kanten auf dem Pfad aktualisieren. 
-    \item Am Ende bekommen wir die gesamte Flussmenge $\mathbf{totflow}$, die wir in dem Graph von $\mathbf{sink}$ nach $\mathbf{src}$ senden können und die gesamten Kosten dafür $\mathbf{totcost}$.
+    \item Am Ende bekommen wir die gesamte Flussmenge $\mathbf{totflow}$, die wir in dem Graph von $\mathbf{sink}$ nach $\mathbf{src}$ senden können und die gesamten Kosten dafür - $\mathbf{totcost}$.
 \end{enumerate}
  Die genauere Implementierung kann von der Aufgabe variieren, aber die Grundidee ist so.
 \subsection{Code}
@@ -183,6 +183,7 @@ Das Algorithmus, das Min-Cost Max-Flow Problem löst, besteht tatsächlich aus d
     \item Den Fluss aktualisieren (updateFlow())
     \item Hilfsfunktion, die überprüft, ob es immer noch einen gültigen Pfad von Quelle zur Senke gibt. (search())
 \end{enumerate}
+Unten können wir den Pseudocode für jeden Unteralgorithmus sehen.
 \begin{algorithm}
 	\caption{maxFlow}
 	\label{alg:BFS}
@@ -237,7 +238,7 @@ Das Algorithmus, das Min-Cost Max-Flow Problem löst, besteht tatsächlich aus d
         \ENDWHILE
 	\end{algorithmic}
 \end{algorithm}
-Hier ist Implementierung der Hilfsfunktion, die überprüft, ob es immer noch einen gültigen Pfad in dem Graph gibt.
+%Hier ist Implementierung der Hilfsfunktion, die überprüft, ob es immer noch einen gültigen Pfad in dem Graph gibt.
 \begin{algorithm}[H]
 	\caption{search}
 	\label{alg:BFS}
@@ -291,7 +292,7 @@ In dieser Abteilung besprechen wir die Laufzeit aller Teile des obenbeschriebene
 
 Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit implementiert haben.
 \begin{enumerate}
-    \item maxFlow() - 
+    \item maxFlow() - Wir gehen von $\mathbf{sink}$ zu $\mathbf{src}$ und vergleichen dabei $\mathbf{val}$ und $\mathbf{amt}$. Die Vergleichung braucht $\mathbf{O(1)}$ und sie wird im schlimmsten Fall $\mathbf{V}$ mal durchgeführt. Insgesamt bekommen wir dann $\mathbf{O(V)}$.
     \item updateFlow() -
     \item search() -
 \end{enumerate}
