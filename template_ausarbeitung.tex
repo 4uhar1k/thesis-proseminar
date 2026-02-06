@@ -141,10 +141,15 @@ Führe hier in das Thema ein: Worum geht es? Warum ist dies interessant? Welche 
  Wie kann man denn Min-Cost Max-Flow beschreiben? Im Buch "Competitive Programming 4"  wurde es so beschrieben: \newline 
   \normalsize
    The Min Cost Flow problem is the problem of finding the cheapest possible way of sending a certain amount of (not necessarily the max) flow through a flow network.\cite{Halim2018} \newline
-   Kurz gesagt, man soll den effizientesten Weg mit maximalem Fluss aus dem gesamten Graph finden.
+   Kurz gesagt, man soll den effizientesten Weg mit maximalem Fluss aus dem gesamten Graph finden. Effizient bedeutet in diesem Kontext, dass die Flusswege auch ihre Kosten haben können. Damit es bisschen verständlicher wird, gebe ich eine typische Aufgabe zu diesem Algorithmus.
 
 \subsection{Beispiel}
-Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.   
+Hier ist ein Beispiel der Aufgabe, der mithilfe von Min-Cost Max-Flow gelöst wird:
+\begin{figure}
+	\centering
+	\includegraphics[width=8cm]{automat.jpg} 
+	\caption{Eine Automat, der als jpg-Bild eingebunden wurde (Achtung: Auflösung!)}
+\end{figure}
 \newpage
 
 \section{Implementierung}
