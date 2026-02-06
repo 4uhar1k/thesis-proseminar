@@ -162,8 +162,8 @@ Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen w
 
 \section{Implementierung}
 
-\subsection{Auswahl des Algorithmus}
-Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Diese können mit dem \textbf{Bellman-Ford-Algorithmus} erkannt werden. Sie sollten beseitigt werden, weil, wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. \cite{GeeksforGeeks2023}
+\subsection{Wichtiger Aspekt}
+Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Sie sollten beseitigt werden, weil, wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. \cite{GeeksforGeeks2023}
 
 \subsection{Schrittweise Aufteilung}
 Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen. Die grundsätzliche Idee ist wie folgt:
@@ -336,7 +336,7 @@ Jetzt zum Algorithmus von Orlin.
     \item Wir haben $\mathbf{O(V)}$ Augmentierungen pro Phase.
     \item Wir haben insgesamt $\mathbf{O(\log U)}$ Phasen. Dabei steht $\mathbf{U}$ für die maximale Kapazität im Graph.
 \end{enumerate}
-Insgesamt bekommen wir also $\mathbf{O(V\log U)}$. Orlins Algorithmus ist bestimmt schneller, als die naive Implementierung, was wir auch in der nächsten Abteilung in den Experimenten sehen können.
+Insgesamt bekommen wir also $\mathbf{O(V\log U)}$. Orlins Algorithmus ist bestimmt schneller, als die naive Implementierung, was wir auch in den Experimenten sehen können.
 \subsection{Experimente}
 
     \begin{center}
@@ -351,7 +351,7 @@ Knoten & Kanten & Naiv & Orlin \\  \hline
 1000 & 4000 & 389 s & 46 ms\\ \hline
 \end{tabular}
 \end{center}
- Wir haben also nochmal bestätigt, dass Orlins Algorithmus entscheidend schneller ist. Deswegen wird er oder einfachere Orlin-basierte Algorithmen in den Wettbewerben verwendet.
+ In den kleineren Graphen gibt es keine relevante Unterschied zwischen den Algorithmen. Ich würde für die kleineren Graphen die naive Implementierung vorziehen, weil sie einfacher zu verstehen ist. In den Programmierwettbewerben wird aber natürlich Algorithmus von Orlin oder einfachere Orlin-basierte Algorithmen verwendet. Wir haben also nochmal bestätigt, dass Orlins Algorithmus entscheidend schneller ist. Deswegen wird er oder einfachere Orlin-basierte Algorithmen in den Wettbewerben verwendet.
 
 \section{Beispiele}
 Hier ist ein kurzer Überblick zu einer echten Programmieraufgabe. \newline
