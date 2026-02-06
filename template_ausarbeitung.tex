@@ -334,8 +334,22 @@ Jetzt zum Algorithmus von Orlin.
     \item Wir haben $\mathbf{O(V)}$ Augmentierungen pro Phase.
     \item Wir haben insgesamt $\mathbf{O(\log U)}$ Phasen. Dabei steht $\mathbf{U}$ für die maximale Kapazität im Graph.
 \end{enumerate}
-Insgesamt bekommen wir also $\mathbf{O(V\log U)}$. Wir haben also bestätigt, dass Orlins Algorithmus entscheidend schneller ist. Deswegen wird er oder einfachere Orlin-basierte Algorithmen in den Wettbewerben verwendet.
-\newpage
+Insgesamt bekommen wir also $\mathbf{O(V\log U)}$. Orlins Algorithmus ist bestimmt schneller, als die naive Implementierung, was wir auch in der nächsten Abteilung in den Experimenten sehen können.
+\subsection{Experimente}
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+\hline
+Knoten & Kanten & Naiv & Orlin \\  \hline
+5 & 20 & $<0.1$ ms & $<0.01$ ms\\ \hline
+10 & 40 & $0.3$ ms & $<0.02$ ms\\ \hline
+20 & 80 & 2 ms & 0.05 ms\\ \hline
+100 & 400 & 0.3 s & 0.4 ms\\ \hline
+500 & 2000 & 31 s & 16 ms\\ \hline
+1000 & 4000 & 389 s & 46 ms\\ \hline
+\end{tabular}
+\end{center}
+ Wir haben also nochmal bestätigt, dass Orlins Algorithmus entscheidend schneller ist. Deswegen wird er oder einfachere Orlin-basierte Algorithmen in den Wettbewerben verwendet.
 
 \section{Beispiele}
 Hier ist ein kurzer Überblick zu einer echten Programmieraufgabe. \newline
