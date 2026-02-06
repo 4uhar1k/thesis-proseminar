@@ -167,14 +167,15 @@ Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen w
 Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Ein negativer Zyklus im Kosten-Netzwerk entsteht, wenn die Summe der Kosten aller Kanten im Zyklus negativ ist. Diese können mit dem \textbf{Bellman-Ford-Algorithmus} erkannt werden. Sie sollten beseitigt werden, da der Fluss durch solche Zyklen in der Praxis nicht zulässig ist. Betrachten wir einen negativen Kostenzyklus: Wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. \cite{GeeksforGeeks2023}(übersetzt durch DeepL)
 
 \subsection{Schrittweise Aufteilung}
-Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen. Die grundsätzliche Idee ist wie folgt: (übersetzt durch DeepL):
+Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen. Die grundsätzliche Idee ist wie folgt:
 \begin{enumerate}
-    \item Gegeben seien der Quellknoten $\mathbf{S}$ und der Senkenknoten $\mathbf{T}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{T}$ nach $\mathbf{S}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
-    \item Soweit es einen gültigen Pfad gibt, wählen wir einen Pfad von $\mathbf{T}$ nach $\mathbf{S}$ (entweder random oder mit den minimalen Kosten). Wir berechnen den maximalen Fluss, den wir entlang dieses Pfades senden können.
-    \item Nachdem wir einen Pfad ausgewählt und den Fluss berechnet haben, sollen wir diesen Pfad aktualisieren, indem wir die Kapazität aller Kanten aktualisieren. 
-    \item Vergleichen Sie die Entfernungswerte in $\mathbf{dist}$[ ] mit dem Wert und aktualisieren Sie so lange, bis der minimale Fluss erreicht ist.
+    \item Gegeben sei ein Graph. Jede Kante in diesem Graph hat ihre Kosten \item Gegeben seien der Quellknoten $\mathbf{src}$ und der Senkenknoten $\mathbf{sink}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{sink}$ nach $\mathbf{src}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
+    \item Gegeben seien der Quellknoten $\mathbf{src}$ und der Senkenknoten $\mathbf{sink}$. Wir haben eine Hilfsfunktion, die überprüft, ob es noch einen gültigen Pfad von $\mathbf{sink}$ nach $\mathbf{src}$ gibt. Wenn es keinen mehr gibt, terminiert der Algorithmus.
+    \item Soweit es einen gültigen Pfad gibt, wählen wir einen Pfad von $\mathbf{sink}$ nach $\mathbf{src}$ (entweder random oder mit den minimalen Kosten). Wir berechnen den maximalen Fluss, den wir entlang dieses Pfades senden können.
+    \item Nachdem wir einen Pfad ausgewählt und den Fluss berechnet haben, sollen wir diesen Pfad aktualisieren, indem wir die Kapazität aller Kanten auf dem Pfad aktualisieren. 
+    \item Am Ende bekommen wir die gesamte Flussmenge $\mathbf{totflow}$, die wir in dem Graph von $\mathbf{sink}$ nach $\mathbf{src}$ senden können und die gesamten Kosten dafür $\mathbf{totcost}$.
 \end{enumerate}
- 
+ Die genauere Implementierung kann von der Aufgabe variieren, aber die Grundidee ist so.
 \subsection{Code}
 Das Algorithmus, das Min-Cost Max-Flow Problem löst, besteht tatsächlich aus drei Unteralgorithmen\cite{GeeksforGeeks2023}:
 \begin{enumerate}
