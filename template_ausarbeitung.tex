@@ -284,7 +284,7 @@ Unten können wir den Pseudocode für jeden Unteralgorithmus sehen.
 \end{algorithm}
 %\newpage
 \section{Algorithmus von Orlin (1988)}
-Orlins Algorithmus gilt als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. In dieser Abteilung betrachten wir diese Lösung näher. \newline
+Orlins Algorithmus gilt als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. \cite{Cruz2023}In dieser Abteilung betrachten wir diese Lösung näher. \cite{orlin1988}\newline
 Wir sollen zwei Schlüsselbegriffe definieren:
 \begin{itemize}
     \item ex(v) = (eingehender Fluss) - (ausgehender Fluss) - d(v), wobei d(v) für Nachfrage des Knoten v steht.
@@ -351,7 +351,7 @@ Knoten & Kanten & Naiv & Orlin \\  \hline
 1000 & 4000 & 389 s & 46 ms\\ \hline
 \end{tabular}
 \end{center}
- In den kleineren Graphen gibt es keine relevante Unterschied zwischen den Algorithmen. Ich würde für die kleineren Graphen die naive Implementierung vorziehen, weil sie einfacher zu verstehen ist. In den Programmierwettbewerben wird aber natürlich Algorithmus von Orlin oder einfachere Orlin-basierte Algorithmen verwendet. Wir haben also nochmal bestätigt, dass Orlins Algorithmus entscheidend schneller ist. Deswegen wird er oder einfachere Orlin-basierte Algorithmen in den Wettbewerben verwendet.
+ Wir haben also eine Bestätigung bekommen, dass Orlins Algorithmus entscheidend schneller ist. In den kleineren Graphen gibt es keinen relevanten Unterschied zwischen den Algorithmen. Ich würde für die kleineren Graphen die naive Implementierung vorziehen, weil sie einfacher zu verstehen ist.\newline In den Programmierwettbewerben wird aber natürlich Algorithmus von Orlin oder einfachere Orlin-basierte Algorithmen verwendet.
 
 \section{Beispiele}
 Hier ist ein kurzer Überblick zu einer echten Programmieraufgabe. \newline
