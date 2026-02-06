@@ -216,6 +216,7 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
     
         \WHILE{$x$ != $src$}
         \STATE $amt \gets \min( amt, val  )$
+        \STATE $x \gets dad[x]$
 
         \ENDWHILE
 	\end{algorithmic}
