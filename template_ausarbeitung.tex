@@ -286,23 +286,10 @@ Unten können wir den Pseudocode für jeden Unteralgorithmus sehen.
 \end{algorithm}
 \newpage
 \section{Algorithmus von Orlin (1988)}
-
-In dieser Abteilung besprechen wir die Laufzeit aller Teile des obenbeschriebenen Algorithmus. Ich will außerdem über die Optimierungsmöglichkeiten erzählen und die effizienteste Variante analysieren.
-
-\subsection{Laufzeit der naiven Lösung}
-
-Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit implementiert haben.
-\begin{enumerate}
-    \item maxFlow() - Wir gehen von $\mathbf{sink}$ zu $\mathbf{src}$ und vergleichen dabei $\mathbf{val}$ und $\mathbf{amt}$. Die Vergleichung braucht $\mathbf{O(1)}$ und sie wird im schlimmsten Fall $\mathbf{V}$ mal durchgeführt. Insgesamt bekommen wir dann $\mathbf{O(V)}$.
-    \item updateFlow() - Der Prinzip ist gleich: wir gehen durch den Pfad und aktualisieren den Flusswert und die Kosten für $\mathbf{O(1)}$. Insgesamt bekommen wir wieder $\mathbf{O(V)}$.
-    \item search() - Die $\mathbf{while}$-Schleife wird $\mathbf{V}$ mal durchgeführt. Die innere $\mathbf{for}$-Schleife läuft auch $\mathbf{V}$ mal. Insgesamt bekommen wir also $\mathbf{O(V^{2})}$.
-\end{enumerate}
-Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal gerufen, wobei $\mathbf{F}$ für den maximalen Fluss im Graph steht. Da $\mathbf{O(V^{2})}$ die $\mathbf{O(V)}$ dominiert, bekommen wir die gesamte Laufzeit von $\mathbf{O(V^{2} \cdot F)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
-
-
+Orlins Algorithmus gilt als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. In dieser Abteilung betrachten wir diese Lösung näher.
 
 \subsection{Algorithm von Orlin (1988)}
-Orlins Algorithm gilt also als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
+ Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
 \begin{itemize}
     \item Alle Kantenkosten sind nicht negativ.
     \item Für jedes Knotenpaar i,j in Knotenmenge V gibt es eine Kante in Kantenmenge E von i nach j.
@@ -331,7 +318,7 @@ In dieser Abteilung besprechen wir die Laufzeit aller Teile des obenbeschriebene
 
 \subsection{Laufzeit der naiven Lösung}
 
-Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit implementiert haben.
+Lasst uns zuerst mit dem naiven Algorithmus anfangen, den wir früher in dieser Arbeit implementiert haben.
 \begin{enumerate}
     \item maxFlow() - Wir gehen von $\mathbf{sink}$ zu $\mathbf{src}$ und vergleichen dabei $\mathbf{val}$ und $\mathbf{amt}$. Die Vergleichung braucht $\mathbf{O(1)}$ und sie wird im schlimmsten Fall $\mathbf{V}$ mal durchgeführt. Insgesamt bekommen wir dann $\mathbf{O(V)}$.
     \item updateFlow() - Der Prinzip ist gleich: wir gehen durch den Pfad und aktualisieren den Flusswert und die Kosten für $\mathbf{O(1)}$. Insgesamt bekommen wir wieder $\mathbf{O(V)}$.
@@ -341,26 +328,8 @@ Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal geruf
 
 
 
-\subsection{Algorithm von Orlin (1988)}
-Orlins Algorithm gilt also als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
-\begin{itemize}
-    \item Alle Kantenkosten sind nicht negativ.
-    \item Für jedes Knotenpaar i,j in Knotenmenge V gibt es eine Kante in Kantenmenge E von i nach j.
-    \item Es gibt maximal eine Kante zwischen beliebigen zwei Knoten i und j, zum Beispiel, es kann nur entweder (i,j)- oder (j,i)-Kante geben, nicht die beiden in einem Graph.
-\end{itemize}
-Der Algorithmus funktioniert, nur wenn der Graph allen diesen Vorbedingungen zustimmt. Der Prinzip seiner Lösung basiert sich auf RHS-Scaling (Right Hand-Side) mit bestimmten Änderungen:
-\begin{enumerate}
-    \item Wir ziehen eine Kante, sobald sie starkbasisch wird.
-    \item Wir lassen in einigen Fällen eine anomale Sondererhöhung zu,
-wenn der Abfluss eines Versorgungsknotens i sein Angebot b(i) übersteigt oder der Zufluss eines
-Nachfrageknotens i seine Nachfrage -b(i) übersteigt.
-    \item Wir verlangen, dass alle Lösungen Spannbaumlösungen sind,
-d. h. Bögen mit positiven Flüssen
-enthalten keine Zyklen.
-    \item Wir verlangen nicht mehr, dass $\Delta$ eine Potenz von 2 ist,
-und wir verlangen auch nicht mehr, dass $\Delta$ bei jeder Iteration durch
-2 geteilt wird. 
-\end{enumerate}
+\subsection{Laufzeit von Orlin}
+
 
 \newpage
 
