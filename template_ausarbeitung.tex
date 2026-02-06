@@ -188,10 +188,10 @@ Wir haben die Unterprobleme nicht nur für besseres Verständnis des Algorithmus
 \subsection{Code}
 Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem löst\cite{GeeksforGeeks2023}:
 \begin{algorithm}
-	\caption{GetMaxFlow}
+	\caption{Wieviel Fluss kann gesendet werden?}
 	\label{alg:BFS}
 	\begin{algorithmic} []
-		\REQUIRE Kapazitätenarray $cap$, Kostenarray $cost$, Quellknoten $src$, Senkenknoten $sink$
+		\REQUIRE Kapazitätenarray $cap$, Flussarray $flow$, Quellknoten $src$, Senkenknoten $sink$
 		%\ENSURE BFS
 		
 		%\STATE	$Q$.enqueue($s$)			
@@ -205,16 +205,17 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 		%\ENDIF
 		%\ENDFOR
 		%\ENDWHILE
-        \STATE $amt$ = $INF$
-        \STATE $x$ = $sink$
-        \IF{flow[x][dad[x]] \neq 0}
-        \STATE $val$ = flow[x][dad[x]]
+        \STATE $amt \gets INF$
+        \STATE $x \gets sink$
+        \IF{$flow[x][dad[x]] \neq 0$}
+        \STATE $val \gets flow[x][dad[x]]$
         \ELSE
-        \STATE $val$ = cap[dad[x]][x] - flow[dad[x]][x]
+        \STATE $val \gets cap[dad[x]][x] - flow[dad[x]][x]$
         \ENDIF
+
     
         \WHILE{$x$ != $src$}
-        \STATE $amt = \min( amt, val  )$
+        \STATE $amt \gets \min( amt, val  )$
 
         \ENDWHILE
 	\end{algorithmic}
