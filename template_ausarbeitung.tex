@@ -298,7 +298,13 @@ Außerdem hat jeder Knoten v seinen Potential p(v), jede Kante hat auch reduzier
 \end{center}
 Jetzt lasst uns den Algorithmus schrittweise aufteilen:
 \begin{enumerate}
-    \item Wir sollen mit einem aktiven Knoten starten. Ein Knoten ist aktiv, wenn $\mathbf{ex(v) \ge }$
+    \item Wir sollen mit einem aktiven Knoten starten. Ein Knoten ist aktiv, wenn $\mathbf{ex(v) \ge \Delta}$.
+    \item Wir suchen jetzt einen Pfad nach Senke. Dabei dürfen nur die Kanten verwendet werden, für die $\mathbf{c_p(u,w) \leq 0}$ gilt.
+    \item Auf unserem Pfad können drei verschidene Fälle entstehen:
+    \begin{itemize}
+        \item Wir haben einen Knoten mit $\mathbf{ex(v) < 0}$ erreicht. In diesem Fall sollen wir entlang des Pfades genau $\Delta$ Fluss schicken.
+        \item Es gibt keine passende Kante mehr. In diesem Fall erneuern wir die Potenziale 
+    \end{itemize}
 \end{enumerate}
 
 \subsection{Algorithm von Orlin (1988)}
