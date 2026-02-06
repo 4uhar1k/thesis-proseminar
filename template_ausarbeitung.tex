@@ -224,19 +224,7 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 	\label{alg:BFS}
 	\begin{algorithmic} []
 		\REQUIRE Kostenarray $cost$, Flussarray $flow$, Quellknoten $src$, Senkenknoten $sink$
-		%\ENSURE BFS
-		
-		%\STATE	$Q$.enqueue($s$)			
-		%\STATE mark $s$ as visited
-		%\WHILE{$Q$ is not empty}
-		%\STATE	$v$ = $Q$.dequeue( )			
-		%\FORALL{neighbors $w$ of $v$}
-		%\IF{$w$ is not visited}
-		%\STATE	$Q$.enqueue($w$)
-		%\STATE	mark $w$ as visited
-		%\ENDIF
-		%\ENDFOR
-		%\ENDWHILE   
+  
         \WHILE{$x \neq src$}        
         \IF{$flow[x][dad[x]] \neq 0$}
         
@@ -259,64 +247,42 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 	\begin{algorithmic} []
 		\REQUIRE Quellknoten $src$, Senkenknoten $sink$
 		\ENSURE $found[sink]$
-		
-		%\STATE	$Q$.enqueue($s$)			
-		%\STATE mark $s$ as visited
-		%\WHILE{$Q$ is not empty}
-		%\STATE	$v$ = $Q$.dequeue( )			
-		%\FORALL{neighbors $w$ of $v$}
-		%\IF{$w$ is not visited}
-		%\STATE	$Q$.enqueue($w$)
-		%\STATE	mark $w$ as visited
-		%\ENDIF
-		%\ENDFOR
-		%\ENDWHILE   
 
         \STATE $Arrays$.fill($found$, false)
         \STATE $Arrays$.fill($dist$, INF)
         \STATE $dist[src] \gets 0$        
         \WHILE{$src \neq N$}
-        \STATE $best = N$
-        \STATE $found[src] = true$
-        \FOR{$k = 0; k< N; k \gets k+1$}
+        \STATE $best \gets N$
+        \STATE $found[src] \gets true$
+        \FOR{$k \gets 0; k< N; k \gets k+1$}
         \IF{$found[k]$}
         \STATE continue
         \ENDIF
         \IF{$flow[k][src] \neq 0$}
-        \STATE $val = dist[src] + pi[src] - pi[k] - cost[k][src]$
+        \STATE $val \gets dist[src] + pi[src] - pi[k] - cost[k][src]$
         \IF{$dist[k] > val$}
-        \STATE $dist[k] = val$
-        \STATE $dad[k] = src$
+        \STATE $dist[k] \gets val$
+        \STATE $dad[k] \gets src$
         \ENDIF
         \ENDIF
         \IF{$flow[src][k] < cap[src][k]$}
-        \STATE $val = dist[src] + pi[src] - pi[k] + cost[k][src]$
+        \STATE $val \gets dist[src] + pi[src] - pi[k] + cost[k][src]$
         \IF{$dist[k] > val$}
-        \STATE $dist[k] = val$
-        \STATE $dad[k] = src$
+        \STATE $dist[k] \gets val$
+        \STATE $dad[k] \gets src$
         \ENDIF
         \ENDIF 
-
-
-        
-        \ENDFOR
-
-
-
-        
-        \IF{$flow[x][dad[x]] \neq 0$}
-        
-        \STATE $flow[x][dad[x]] \gets flow[x][dad[x]] - amt$
-        \STATE $totcost \gets totcost - amt*cost[x][dad[x]]$
-        \ELSE
-        \STATE $flow[x][dad[x]] \gets flow[x][dad[x]] + amt$
-        \STATE $totcost \gets totcost + amt*cost[x][dad[x]]$
+        \IF{$dist[k]<dist[best]$}
+        \STATE $best \gets k$
         \ENDIF
-        \STATE $totflow \gets totflow + amt$
-
-        
-        \STATE $x \gets dad[x]$
+        \ENDFOR
+        \STATE $src \gets best$
         \ENDWHILE
+        \FOR{$k \gets 0; k< N; k \gets k+1$}
+        \STATE $pi[k] \gets \min( pi[k]+dist[k], INF)$
+        \ENDFOR
+        \RETURN $found[sink]$
+        
 	\end{algorithmic}
 \end{algorithm}
 \newpage
