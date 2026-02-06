@@ -206,18 +206,50 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 		%\ENDFOR
 		%\ENDWHILE
         \STATE $amt \gets INF$
-        \STATE $x \gets sink$
+        \STATE $x \gets sink$     
+        \WHILE{$x$ != $src$}
         \IF{$flow[x][dad[x]] \neq 0$}
         \STATE $val \gets flow[x][dad[x]]$
         \ELSE
         \STATE $val \gets cap[dad[x]][x] - flow[dad[x]][x]$
         \ENDIF
-
-    
-        \WHILE{$x$ != $src$}
         \STATE $amt \gets \min( amt, val  )$
         \STATE $x \gets dad[x]$
 
+        \ENDWHILE
+	\end{algorithmic}
+\end{algorithm}
+\begin{algorithm}
+	\caption{Den Fluss aktualisieren}
+	\label{alg:BFS}
+	\begin{algorithmic} []
+		\REQUIRE Kostenarray $cost$, Flussarray $flow$, Quellknoten $src$, Senkenknoten $sink$
+		%\ENSURE BFS
+		
+		%\STATE	$Q$.enqueue($s$)			
+		%\STATE mark $s$ as visited
+		%\WHILE{$Q$ is not empty}
+		%\STATE	$v$ = $Q$.dequeue( )			
+		%\FORALL{neighbors $w$ of $v$}
+		%\IF{$w$ is not visited}
+		%\STATE	$Q$.enqueue($w$)
+		%\STATE	mark $w$ as visited
+		%\ENDIF
+		%\ENDFOR
+		%\ENDWHILE   
+        \WHILE{$x$ != $src$}        
+        \IF{$flow[x][dad[x]] \neq 0$}
+        
+        \STATE $flow[x][dad[x]] \gets flow[x][dad[x]] - amt$
+        \STATE $totcost \gets totcost - amt*cost[x][dad[x]]$
+        \ELSE
+        \STATE $flow[x][dad[x]] \gets flow[x][dad[x]] + amt$
+        \STATE $totcost \gets totcost + amt*cost[x][dad[x]]$
+        \ENDIF
+        \STATE $totflow \gets totflow + amt$
+
+        
+        \STATE $x \gets dad[x]$
         \ENDWHILE
 	\end{algorithmic}
 \end{algorithm}
