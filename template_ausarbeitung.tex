@@ -293,10 +293,10 @@ In dieser Abteilung besprechen wir die Laufzeit aller Teile des obenbeschriebene
 Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit implementiert haben.
 \begin{enumerate}
     \item maxFlow() - Wir gehen von $\mathbf{sink}$ zu $\mathbf{src}$ und vergleichen dabei $\mathbf{val}$ und $\mathbf{amt}$. Die Vergleichung braucht $\mathbf{O(1)}$ und sie wird im schlimmsten Fall $\mathbf{V}$ mal durchgeführt. Insgesamt bekommen wir dann $\mathbf{O(V)}$.
-    \item updateFlow() -
+    \item updateFlow() - Der Prinzip ist gleich: wir gehen durch den Pfad und aktualisieren den Flusswert und die Kosten für $\mathbf{O(1)}$. Insgesamt bekommen wir wieder $\mathbf{O(V)}$.
     \item search() -
 \end{enumerate}
-Insgesamt bekommen wir die Laufzeit von $\mathbf{O(V^{2} \cdot E^{2})}$ und den Speicherverbrauch von $\mathbf{O(V)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in relativ kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
+Insgesamt bekommen wir die Laufzeit von $\mathbf{O(V^{2} \cdot F)}$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in relativ kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
 
 \subsection{Optimierungsmöglichkeiten}
 Wir können drei wichtigste Unterprobleme definieren.\cite{Cruz2023} Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
