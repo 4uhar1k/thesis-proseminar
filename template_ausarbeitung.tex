@@ -295,7 +295,7 @@ Lasst uns zuerst mit dem Algorithmus anfangen, das wir früher implementiert hab
 \end{enumerate}
 
 \subsection{Optimierungsmöglichkeiten}
-Wir können drei wichtigste Unterprobleme definieren\cite{Cruz2023}. Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
+Wir können drei wichtigste Unterprobleme definieren.\cite{Cruz2023} Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
 \begin{itemize}
     \item Shortest $(s,t)$-path Problem – Wir haben einen Digraphen $G$, zwei bestimmte Knoten $\mathbf{s}$ und $\mathbf{t}$ und einen Kostenvektor $c \in \mathbb{Q}^m$. Die Aufgabe besteht darin, einen Pfad von $\mathbf{s}$ nach $\mathbf{t}$ mit minimalen Gesamtkosten zu finden.
     
@@ -304,19 +304,20 @@ Wir können drei wichtigste Unterprobleme definieren\cite{Cruz2023}. Die sind f�
     \item Negative-cycle detection problem –  Wir haben einen Digraphen $G$ und einen Kostenvektor $c \in \mathbb{Z}^m$. Die Aufgabe besteht darin, zu überprüfen, ob
  es in $G$ einen gerichteten Zyklus gibt, dessen Gesamtkosten negativ sind. (übersetzt durch DeepL)
 \end{itemize}
-Da das Problem schon seit langer Zeit geforscht wurde, gibt es mehrere Lösungen, die für polynomielle Zeit ausgeführt werden
+Da das Problem schon seit langer Zeit geforscht wurde, gibt es mehrere Lösungen, die für polynomielle Zeit ausgeführt werden. \cite{Cruz2023}
 \begin{center}
-    \begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|}
 \hline
 Jahr & Laufzeit & Quelle \\ \hline
-1972 & O(E \log U) * SP & Edmonds und Karp \\ \hline
-1980 & O(E \log C) * MF & Röck \\ \hline
-1984 & O(E^{2} \log V) * SP & Orlin, Fujishige \\ \hline
-1985 & O(E^{2} \log V) * MF & Tardos \\ \hline
-1986 & O(V^{2} \log V) * SP & Galil und Tardos \\ \hline
-1988 & O(E \log V) * SP & Orlin \\ \hline
+1972 & $O(E \log U) \cdot SP$ & Edmonds und Karp \\ \hline
+1980 & $O(E \log C) \cdot MF$ & Röck \\ \hline
+1984 & $O(E^{2} \log V) \cdot SP$ & Orlin, Fujishige \\ \hline
+1985 & $O(E^{2} \log V) \cdot MF$ & Tardos \\ \hline
+1986 & $O(V^{2} \log V) \cdot SP$ & Galil und Tardos \\ \hline
+1988 & $O(E \log V) \cdot SP$ & Orlin \\ \hline
 \end{tabular}
 \end{center}
+Orlans Algorithm gilt heutzutage als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. In nächster 
 
 \subsection{Algorithm von Orlan (1988)}
 Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
