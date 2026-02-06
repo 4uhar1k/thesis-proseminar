@@ -177,14 +177,14 @@ Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diese
 \end{enumerate}
 Wir können also drei wichtigste Unterprobleme definieren\cite{Cruz2023}:
 \begin{itemize}
-    \item Shortest $(s,t)$-path Problem – Wir haben einen Digraphen $G$, zwei bestimmte Knoten $\mathbf{s}$ und $\mathbf{t}$ und einen Kostenvektor $c \in \mathbf{Q}^m$. Die Aufgabe besteht darin, einen Pfad von $\mathbf{s}$ nach $\mathbf{t}$ mit minimalen Gesamtkosten zu finden.
+    \item Shortest $(s,t)$-path Problem – Wir haben einen Digraphen $G$, zwei bestimmte Knoten $\mathbf{s}$ und $\mathbf{t}$ und einen Kostenvektor $c \in \mathbb{Q}^m$. Die Aufgabe besteht darin, einen Pfad von $\mathbf{s}$ nach $\mathbf{t}$ mit minimalen Gesamtkosten zu finden.
     
     \item Transshipment problem –  die Variante von MCF, bei der keine Bogenkapazitäten vorhanden sind (oder, gleichbedeutend, alle Bogenkapazitäten sehr groß sind) 
     
-    \item Negative-cycle detection problem –  we have a digraph $G$ and a cost vector $c \in \mathbf{Z}^m$. The task is to check whether
- there exists a directed cycle in G whose total cost is negative.
+    \item Negative-cycle detection problem –  Wir haben einen Digraphen $G$ und einen Kostenvektor $c \in \mathbb{Z}^m$. Die Aufgabe besteht darin, zu überprüfen, ob
+ es in $G$ einen gerichteten Zyklus gibt, dessen Gesamtkosten negativ sind. (übersetzt durch DeepL)
 \end{itemize}
-
+Wir haben die Unterprobleme nicht nur für besseres Verständnis des Algorithmus erwähnt. Die können auch für genauere Analyse der Laufzeit, die wir später durchführen, hilfreich sein. 
 \subsection{Code}
 Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem löst\cite{GeeksforGeeks2023}:
 \begin{algorithm}
