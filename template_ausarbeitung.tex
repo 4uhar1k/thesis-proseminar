@@ -186,9 +186,14 @@ Wir können also drei wichtigste Unterprobleme definieren\cite{Cruz2023}:
 \end{itemize}
 Wir haben die Unterprobleme nicht nur für besseres Verständnis des Algorithmus erwähnt. Die können auch für genauere Analyse der Laufzeit, die wir später durchführen, hilfreich sein. 
 \subsection{Code}
-Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem löst\cite{GeeksforGeeks2023}:
+Das Algorithmus, das Min-Cost Max-Flow Problem löst, besteht tatsächlich aus drei Unteralgorithmen\cite{GeeksforGeeks2023}:
+\begin{enumerate}
+    \item Wieviel Fluss kann gesendet werden? (Wir können es maxFlow() nennen)
+    \item Den Fluss aktualisieren (updateFlow())
+    \item Hilfsfunktion, die überprüft, ob es immer noch einen gültigen Pfad in dem Graph gibt. (search())
+\end{enumerate}
 \begin{algorithm}
-	\caption{Wieviel Fluss kann gesendet werden?}
+	\caption{maxFlow}
 	\label{alg:BFS}
 	\begin{algorithmic} []
 		\REQUIRE Kapazitätenarray $cap$, Flussarray $flow$, Quellknoten $src$, Senkenknoten $sink$
@@ -220,7 +225,7 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 	\end{algorithmic}
 \end{algorithm}
 \begin{algorithm}[H]
-	\caption{Den Fluss aktualisieren}
+	\caption{updateFlow}
 	\label{alg:BFS}
 	\begin{algorithmic} []
 		\REQUIRE Kostenarray $cost$, Flussarray $flow$, Quellknoten $src$, Senkenknoten $sink$
@@ -243,7 +248,7 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 \end{algorithm}
 Hier ist Implementierung der Hilfsfunktion, die überprüft, ob es immer noch einen gültigen Pfad in dem Graph gibt.
 \begin{algorithm}[H]
-	\caption{Search}
+	\caption{search}
 	\label{alg:BFS}
 	\begin{algorithmic} []
 		\REQUIRE Quellknoten $src$, Senkenknoten $sink$
