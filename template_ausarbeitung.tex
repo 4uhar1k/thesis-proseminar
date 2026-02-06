@@ -165,7 +165,7 @@ Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen w
 \section{Implementierung}
 
 \subsection{Auswahl des Algorithmus}
-Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein, da wir die Kosten dieses augmentierenden Pfades subtrahieren müssen, da das Aufheben des Flusses bedeutet, dass wir diese Kante nicht verwenden wollen.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Ein negativer Zyklus im Kosten-Netzwerk entsteht, wenn die Summe der Kosten aller Kanten im Zyklus negativ ist. Diese können mit dem \textbf{Bellman-Ford-Algorithmus} erkannt werden. Sie sollten beseitigt werden, da der Fluss durch solche Zyklen in der Praxis nicht zulässig ist. Betrachten wir einen negativen Kostenzyklus: Wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. Wenn ein Kosten-Netzwerk also einen negativen Zyklus enthält, bedeutet dies, dass die Kosten weiter minimiert werden können\cite{GeeksforGeeks2023}(übersetzt durch DeepL).
+Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Bevor wir mit der Implementierung beginnen, sollen wir einen Aspekt betrachten: die Kosten können auch negativ sein.\cite{Halim2018} \newline Warum ist das wichtig? In manchen Situationen können negative Zyklen entstehen. Ein negativer Zyklus im Kosten-Netzwerk entsteht, wenn die Summe der Kosten aller Kanten im Zyklus negativ ist. Diese können mit dem \textbf{Bellman-Ford-Algorithmus} erkannt werden. Sie sollten beseitigt werden, da der Fluss durch solche Zyklen in der Praxis nicht zulässig ist. Betrachten wir einen negativen Kostenzyklus: Wenn der gesamte Fluss diesen Zyklus durchlaufen muss, verringern sich die Gesamtkosten mit jedem abgeschlossenen Zyklus. Dies würde zu einer Endlosschleife führen, wenn man die Gesamtkosten minimieren möchte. Wenn ein Kosten-Netzwerk also einen negativen Zyklus enthält, bedeutet dies, dass die Kosten weiter minimiert werden können\cite{GeeksforGeeks2023}(übersetzt durch DeepL).
 
 \subsection{Schrittweise Aufteilung}
 Ian Kiprono, Senior Software Developer bei PInterest, hat einen Artikel zu diesem Thema auf der Webseite geeksforgeeks.com hochgeladen. Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise aufteilen (übersetzt durch DeepL):
@@ -317,21 +317,9 @@ Jahr & Laufzeit & Quelle \\ \hline
 1988 & $O(E \log V) \cdot SP$ & Orlin \\ \hline
 \end{tabular}
 \end{center}
-Dabei steht \mathbf{E} für die Anzahl der Kanten, \mathbf{V} für die Anzahl der Knoten, \mathbf{U} für die maximale Kapazität im Graph und \mathbf{C} für die maximale Kosten. \mathbf{SP} steht für Shortest-Path Problem und \mathbf{MF} für Maximum-Flow. Orlans Algorithm gilt also als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. Im nächsten Abschnitt betrachten wir diesen Algorithmus näher. 
+Dabei steht $\mathbf{E}$ für die Anzahl der Kanten, $\mathbf{V}$ für die Anzahl der Knoten, $\mathbf{U}$ für die maximale Kapazität im Graph und $\mathbf{C}$ für die maximale Kosten. $\mathbf{SP}$ steht für Shortest-Path Problem und $\mathbf{MF}$ für Maximum-Flow. Orlans Algorithm gilt also als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. Im nächsten Abschnitt betrachten wir diesen Algorithmus näher. 
 
 \subsection{Algorithm von Orlan (1988)}
-Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
-\newpage
-\section{Maximum Flow}
-
-
-Gebe hier eine abgeschlossene Darstellung des Inhaltes. Schreibe diese so, dass sie für Deine Kommilitonen verständlich ist. Verwende dabei zur Anschauung des Inhaltes auch Beispiele und Abbildungen.
-
-\subsection{Hinweise}
-
-Der Hauptteil soll natürlich nicht den Titel \glqq Hauptteil\grqq\ sondern einen passenden Titel haben, und zudem in sinnvolle Abschnitte und Unterabschnitte mit passenden Überschriften gegliedert sein.\\
-
-\subsection{Zitate und Referenzen}
 Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
 \newpage
 
