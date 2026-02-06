@@ -303,9 +303,11 @@ Jetzt lasst uns den Algorithmus schrittweise aufteilen:
     \item Auf unserem Pfad können drei verschidene Fälle entstehen:
     \begin{itemize}
         \item Wir haben einen Knoten mit $\mathbf{ex(v) < 0}$ erreicht. In diesem Fall sollen wir entlang des Pfades genau $\Delta$ Fluss schicken.
-        \item Es gibt keine passende Kante mehr. In diesem Fall erneuern wir die Potenziale 
+        \item Es gibt keine passende Kante mehr. In diesem Fall erneuern wir den Potenzial von dem Knoten v: $\mathbf{p(v) = max(p(w) - c(v,w) - \varepsilon}$
+        \item Es gibt keinen aktiven Knoten mehr. Dann $\mathbf{\Delta = \Delta / 2}$.
     \end{itemize}
 \end{enumerate}
+Der Algorithmus stoppt, wenn $\mathbf{\varepsilon < \frac{1} }$
 
 \subsection{Algorithm von Orlin (1988)}
  Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
