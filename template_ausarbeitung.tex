@@ -180,10 +180,10 @@ Lasst uns, mithilfe von obengenanntem Artikel\cite{GeeksforGeeks2023}, zuerst da
 \subsection{Code}
 Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem löst\cite{GeeksforGeeks2023}:
 \begin{algorithm}
-	\caption{Breitensuche (BFS)}
+	\caption{GetMaxFlow}
 	\label{alg:BFS}
 	\begin{algorithmic} []
-		\REQUIRE Graph $G$, Startknoten $s$, leere Warteschlange $Q$
+		\REQUIRE Kapazitätenarray $cap$, Kostenarray $cost$, Quellknoten $q$, Senkenknoten $s$
 		\ENSURE BFS
 		
 		\STATE	$Q$.enqueue($s$)			
