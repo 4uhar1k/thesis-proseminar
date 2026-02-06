@@ -191,29 +191,30 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 	\caption{GetMaxFlow}
 	\label{alg:BFS}
 	\begin{algorithmic} []
-		\REQUIRE Kapazitätenarray $cap$, Kostenarray $cost$, Quellknoten $q$, Senkenknoten $s$
-		\ENSURE BFS
+		\REQUIRE Kapazitätenarray $cap$, Kostenarray $cost$, Quellknoten $src$, Senkenknoten $sink$
+		%\ENSURE BFS
 		
-		\STATE	$Q$.enqueue($s$)			
-		\STATE mark $s$ as visited
-		\WHILE{$Q$ is not empty}
-		\STATE	$v$ = $Q$.dequeue( )			
-		\FORALL{neighbors $w$ of $v$}
-		\IF{$w$ is not visited}
-		\STATE	$Q$.enqueue($w$)
-		\STATE	mark $w$ as visited
-		\ENDIF
-		\ENDFOR
-		\ENDWHILE
+		%\STATE	$Q$.enqueue($s$)			
+		%\STATE mark $s$ as visited
+		%\WHILE{$Q$ is not empty}
+		%\STATE	$v$ = $Q$.dequeue( )			
+		%\FORALL{neighbors $w$ of $v$}
+		%\IF{$w$ is not visited}
+		%\STATE	$Q$.enqueue($w$)
+		%\STATE	mark $w$ as visited
+		%\ENDIF
+		%\ENDFOR
+		%\ENDWHILE
         \STATE $amt$ = $INF$
         \STATE $x$ = $sink$
+        \IF{flow[x][dad[x]] \neq 0}
+        \STATE $val$ = flow[x][dad[x]]
+        \ELSE
+        \STATE $val$ = cap[dad[x]][x] - flow[dad[x]][x]
+        \ENDIF
+    
         \WHILE{$x$ != $src$}
-        \STATE $amt  \min\Bigl( amt,\;
-    \textbf{if}\; flow[x][dad[x]] \neq 0\;\textbf{ then }
-        flow[x][dad[x]]
-    \;\textbf{else}\;
-        cap[dad[x]][x] - flow[dad[x]][x]
-    \Bigr)$
+        \STATE $amt = \min( amt, val  )$
 
         \ENDWHILE
 	\end{algorithmic}
