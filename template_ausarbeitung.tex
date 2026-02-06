@@ -329,8 +329,12 @@ Die $\mathbf{search()}$-Funktion wird im schlimmsten Fall $\mathbf{F}$ mal geruf
 
 
 \subsection{Laufzeit von Orlin}
-
-
+Jetzt zum Algorithmus von Orlin.
+\begin{enumerate}
+    \item Wir haben $\mathbf{O(V)}$ Augmentierungen pro Phase.
+    \item Wir haben insgesamt $\mathbf{O(\log U)}$ Phasen. Dabei steht $\mathbf{U}$ für die maximale Kapazität im Graph.
+\end{enumerate}
+Insgesamt bekommen wir also $\mathbf{O(V\log U)}$. Wir haben also bestätigt, dass Orlins Algorithmus entscheidend schneller ist. Deswegen wird er oder einfachere Orlin-basierte Algorithmen in den Wettbewerben verwendet.
 \newpage
 
 \section{Beispiele}
