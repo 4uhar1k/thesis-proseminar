@@ -164,20 +164,19 @@ Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen w
 
 \section{Implementierung}
 
-Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Lasst uns, mithilfe von Artikel auf der Website geeksforgeeks.com \cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise definieren:
+
+\subsection{Aufteilung des Algorithmus}
+
+Jetzt betrachten wir, wie Min-Cost Flow Algorithmus am besten implementiert werden kann. Lasst uns, mithilfe von Artikel auf der Website geeksforgeeks.com \cite{GeeksforGeeks2023}, zuerst das Algorithmus schrittweise definieren (übersetzt durch DeepL):
 \begin{enumerate}
     \item Speichern Sie die Kapazität einer Kante und die Kosten dieser Kante in zwei separaten Arrays.
-    \item Gegeben seien der Quellknoten S und der Senkenknoten T, die ausgewählte Kante $\mathbf{p_i}$, die Nachfragknoten $\mathbf{d_a}$ und die Entfernung zwischen den Knoten $\mathbf{dist}$. Suchen Sie, ob es möglich ist, einen Fluss von S nach T zu haben.
-    \item Wenn ein Fluss existiert, berechnen Sie die Entfernung, Wert = dist + $\mathbf{p_i}$ – $\mathbf{p_i}$[k] - cost[k].
-    \item Vergleichen Sie die Entfernungswerte in dist[ ] mit dem Wert und aktualisieren Sie so lange, bis der minimale Fluss erreicht ist.
+    \item Gegeben seien der Quellknoten $\mathbf{S}$ und der Senkenknoten $\mathbf{T}$, die ausgewählte Kante $\mathbf{p_i}$, die Nachfragknoten $\mathbf{d_a}$ und die Entfernung zwischen den Knoten $\mathbf{dist}$. Suchen Sie, ob es möglich ist, einen Fluss von $\mathbf{S}$ nach $\mathbf{T}$ zu haben.
+    \item Wenn ein Fluss existiert, berechnen Sie die Entfernung, Wert = $\mathbf{dist}$ + $\mathbf{p_i}$ – $\mathbf{p_i}$[k] - $\mathbf{cost}$[k].
+    \item Vergleichen Sie die Entfernungswerte in $\mathbf{dist}$[ ] mit dem Wert und aktualisieren Sie so lange, bis der minimale Fluss erreicht ist.
 \end{enumerate}
 
 
-\subsection{Hinweise}
-
-Der Hauptteil soll natürlich nicht den Titel \glqq Hauptteil\grqq\ sondern einen passenden Titel haben, und zudem in sinnvolle Abschnitte und Unterabschnitte mit passenden Überschriften gegliedert sein.\\
-
-\subsection{Zitate und Referenzen}
+\subsection{Code}
 Denke daran, alle Aussagen durch Quellen zu belegen. Beispielsweise die Aussage, dass Turing die Unentscheidbarkeit des Halteproblems gezeigt hat \cite{Turing1937}.
 \newpage
 \section{Laufzeit und Korrektheit}
@@ -278,6 +277,7 @@ Fasse hier die vorgestellten Ergebnisse zusammen, diskutiere diese und gebe eine
 Ich versichere an Eides statt, dass ich die vorliegende Arbeit in allen Teilen selbstständig und ohne unzulässige Hilfe Dritter absolviert sowie keine anderen als die genannten und explizit zugelassenen Hilfsmittel verwendet und mich im Allgemeinen prüfungskonform verhalten habe. Ich erkläre zudem, dass ich beim Einsatz von IT-/KI-gestützten Schreibwerkzeugen diese Werkzeuge in der Übersicht verwendeter Hilfsmittel mit ihrem Produktnamen, meiner Bezugsquelle und … vollständig aufgeführt und/oder die betreffenden Textstellen in der Arbeit als mit KI generierter Unterstützung verfasst gekennzeichnet habe. Mir ist bewusst, dass Täuschungen bzw. Täuschungsversuche nach der für mich geltenden Prüfungsordnung geahndet werden.\\
 
 
-Folgende Hilfsmittel habe ich für die Bearbeitung genutzt
+Folgende Hilfsmittel habe ich für die Bearbeitung genutzt:
+DeepL Übersetzer
  
 \end{document}
