@@ -292,12 +292,12 @@ Wir sollen zwei Schlüsselbegriffe definieren:
 \end{itemize}
 Außerdem hat jeder Knoten v seinen Potential p(v), jede Kante hat auch reduzierte Kosten, die mit folgender Formel berechnet werden können: \newline
 \begin{center}
-    $\mathbf{c_p(u,w) = c(u,w) + p(v) - p(w)}$
+    $\mathbf{c_p(v,w) = c(v,w) + p(v) - p(w)}$
 \end{center}
 Jetzt lasst uns den Algorithmus schrittweise aufteilen:
 \begin{enumerate}
     \item Wir sollen mit einem aktiven Knoten starten. Ein Knoten ist aktiv, wenn $\mathbf{ex(v) \ge \Delta}$.
-    \item Wir suchen jetzt einen Pfad nach Senke. Dabei dürfen nur die Kanten verwendet werden, für die $\mathbf{c_p(u,w) \leq 0}$ gilt.
+    \item Wir suchen jetzt einen Pfad nach Senke. Dabei dürfen nur die Kanten verwendet werden, für die $\mathbf{c_p(v,w) \leq 0}$ gilt.
     \item Auf unserem Pfad können drei verschidene Fälle entstehen:
     \begin{itemize}
         \item Wir haben einen Knoten mit $\mathbf{ex(v) < 0}$ erreicht. In diesem Fall sollen wir entlang des Pfades genau $\Delta$ Fluss schicken.
@@ -425,7 +425,7 @@ Ich versichere an Eides statt, dass ich die vorliegende Arbeit in allen Teilen s
 Folgende Hilfsmittel habe ich für die Bearbeitung genutzt:
 \begin{itemize}
     \item DeepL Übersetzer - Unterstützung bei der Übersetzung
-    \item ChatGPT - sprachliche Unterstützung
+    \item ChatGPT - sprachliche Unterstützung, Hilfe mit LaTex
     \item Google Scholar - Literatursuche
 \end{itemize}
 
