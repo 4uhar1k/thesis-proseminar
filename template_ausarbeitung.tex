@@ -282,8 +282,20 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
         \IF{$found[k]$}
         \STATE continue
         \ENDIF
-
-
+        \IF{$flow[k][src] \neq 0$}
+        \STATE $val = dist[src] + pi[src] - pi[k] - cost[k][src]$
+        \IF{$dist[k] > val$}
+        \STATE $dist[k] = val$
+        \STATE $dad[k] = src$
+        \ENDIF
+        \ENDIF
+        \IF{$flow[src][k] < cap[src][k]$}
+        \STATE $val = dist[src] + pi[src] - pi[k] + cost[k][src]$
+        \IF{$dist[k] > val$}
+        \STATE $dist[k] = val$
+        \STATE $dad[k] = src$
+        \ENDIF
+        \ENDIF 
 
 
         
