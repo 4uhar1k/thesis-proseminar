@@ -291,7 +291,10 @@ In dieser Abteilung besprechen wir die Laufzeit aller Teile des obenbeschriebene
 Lasst uns zuerst mit dem Algorithmus anfangen, den wir früher in dieser Arbeit implementiert haben.
 \begin{enumerate}
     \item maxFlow() - 
+    \item updateFlow() -
+    \item search() -
 \end{enumerate}
+Insgesamt bekommen wir die Laufzeit von $O(V^{2} \cdot E^{2})$ und den Speicherverbrauch von $O(V)$. Dieser Algorithmus passt also ganz gut für Lösung des Problems in relativ kleinen Graphen. Es gibt aber eine andere Lösung, die viel effizienter ist.
 
 \subsection{Optimierungsmöglichkeiten}
 Wir können drei wichtigste Unterprobleme definieren.\cite{Cruz2023} Die sind für genauere Analyse der Laufzeit von Algorithmen in polynomialer Zeit hilfreich.
