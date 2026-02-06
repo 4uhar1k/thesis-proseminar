@@ -206,7 +206,16 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 		\ENDFOR
 		\ENDWHILE
         \STATE $amt$ = $INF$
-        \FOR{$x$ = $sink$, $x$!=$sr$}
+        \STATE $x$ = $sink$
+        \WHILE{$x$ != $src$}
+        \STATE $amt  \min\Bigl( amt,\;
+    \textbf{if}\; flow[x][dad[x]] \neq 0\;\textbf{ then }
+        flow[x][dad[x]]
+    \;\textbf{else}\;
+        cap[dad[x]][x] - flow[dad[x]][x]
+    \Bigr)$
+
+        \ENDWHILE
 	\end{algorithmic}
 \end{algorithm}
 \newpage
