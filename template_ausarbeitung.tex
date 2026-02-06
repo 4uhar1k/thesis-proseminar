@@ -131,8 +131,6 @@ In meiner Ausarbeitung geht es um Min-Cost Max-Flow - ein Problem, das eine Grun
   Graphen sind eine grundlegende Datenstruktur in der Programmierung. Sie ermöglichen es, komplexe reale Probleme zu modellieren und dadurch besser zu analysieren und zu verstehen.  Ein bekanntes Problem aus der Graphentheorie ist das Min-Cost-Max-Flow-Problem. In meiner Arbeit betrachte ich dieses Problem näher.
   
  
-\newpage
-
 \section{Problemstellung}
 
 
@@ -160,7 +158,7 @@ Wir haben hier einen Graph, wobei jede Kante ihre Kosten hat, die oben geschrieb
 \end{itemize}
 Wie wir sehen können braucht die erste Variante am wenigsten Kosten, deswegen wählen wir die aus. Aber was wenn wir eine komplexere Aufgabe haben? Wie genau funktioniert das Algorithmus? Das erkläre ich im nächsten Kapitel.
 
-\newpage
+%\newpage
 
 \section{Implementierung}
 
@@ -284,7 +282,7 @@ Unten können wir den Pseudocode für jeden Unteralgorithmus sehen.
         
 	\end{algorithmic}
 \end{algorithm}
-\newpage
+%\newpage
 \section{Algorithmus von Orlin (1988)}
 Orlins Algorithmus gilt als der effizienteste nicht-randomisierte Algorithmus für Min-Cost Flow Problem. In dieser Abteilung betrachten wir diese Lösung näher. \newline
 Wir sollen zwei Schlüsselbegriffe definieren:
@@ -307,28 +305,9 @@ Jetzt lasst uns den Algorithmus schrittweise aufteilen:
         \item Es gibt keinen aktiven Knoten mehr. Dann $\mathbf{\Delta = \Delta / 2}$.
     \end{itemize}
 \end{enumerate}
-Der Algorithmus stoppt, wenn $\mathbf{\varepsilon < \frac{1} }$
+Der Algorithmus stoppt, wenn $\mathbf{\varepsilon < \frac{1}{2n}}$.
 
-\subsection{Algorithm von Orlin (1988)}
- Orlin hat seine Lösung auf Edmond-Karps Algorithmus basiert.\cite{orlin1988} Er hat drei Vorbedingungen genannt, die wichtig zu bemerken sind:
-\begin{itemize}
-    \item Alle Kantenkosten sind nicht negativ.
-    \item Für jedes Knotenpaar i,j in Knotenmenge V gibt es eine Kante in Kantenmenge E von i nach j.
-    \item Es gibt maximal eine Kante zwischen beliebigen zwei Knoten i und j, zum Beispiel, es kann nur entweder (i,j)- oder (j,i)-Kante geben, nicht die beiden in einem Graph.
-\end{itemize}
-Der Algorithmus funktioniert, nur wenn der Graph allen diesen Vorbedingungen zustimmt. Der Prinzip seiner Lösung basiert sich auf RHS-Scaling (Right Hand-Side) mit bestimmten Änderungen:
-\begin{enumerate}
-    \item Wir ziehen eine Kante, sobald sie starkbasisch wird.
-    \item Wir lassen in einigen Fällen eine anomale Sondererhöhung zu,
-wenn der Abfluss eines Versorgungsknotens i sein Angebot b(i) übersteigt oder der Zufluss eines
-Nachfrageknotens i seine Nachfrage -b(i) übersteigt.
-    \item Wir verlangen, dass alle Lösungen Spannbaumlösungen sind,
-d. h. Bögen mit positiven Flüssen
-enthalten keine Zyklen.
-    \item Wir verlangen nicht mehr, dass $\Delta$ eine Potenz von 2 ist,
-und wir verlangen auch nicht mehr, dass $\Delta$ bei jeder Iteration durch
-2 geteilt wird. 
-\end{enumerate}
+
 
 
 
