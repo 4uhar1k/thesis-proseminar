@@ -207,7 +207,7 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 		%\ENDWHILE
         \STATE $amt \gets INF$
         \STATE $x \gets sink$     
-        \WHILE{$x$ != $src$}
+        \WHILE{$x \neq src$}
         \IF{$flow[x][dad[x]] \neq 0$}
         \STATE $val \gets flow[x][dad[x]]$
         \ELSE
@@ -237,7 +237,7 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 		%\ENDIF
 		%\ENDFOR
 		%\ENDWHILE   
-        \WHILE{$x$ != $src$}        
+        \WHILE{$x \neq src$}        
         \IF{$flow[x][dad[x]] \neq 0$}
         
         \STATE $flow[x][dad[x]] \gets flow[x][dad[x]] - amt$
@@ -271,7 +271,27 @@ Hier ist ein Pseudo-Code für das Algorithmus, das Min-Cost Max-Flow Problem lö
 		%\ENDIF
 		%\ENDFOR
 		%\ENDWHILE   
-        \WHILE{$x$ != $src$}        
+
+        \STATE $Arrays$.fill($found$, false)
+        \STATE $Arrays$.fill($dist$, INF)
+        \STATE $dist[src] \gets 0$        
+        \WHILE{$src \neq N$}
+        \STATE $best = N$
+        \STATE $found[src] = true$
+        \FOR{$k = 0; k< N; k \gets k+1$}
+        \IF{$found[k]$}
+        \STATE continue
+        \ENDIF
+
+
+
+
+        
+        \ENDFOR
+
+
+
+        
         \IF{$flow[x][dad[x]] \neq 0$}
         
         \STATE $flow[x][dad[x]] \gets flow[x][dad[x]] - amt$
